@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScrpit</title>
+    <script type="text/javascript">
+
+        function visPersonRegister() {
+
+            let ut = "<table><tr>" +
+                "<th>Navn</th><th>Adresse</th><th>Telefonnr</th><th>Personnummer</th>" +
+                "</tr>";
+
+            let person1 = {
+                Navn: "Niklas Havnaas",
+                Adresse: "Oslosgate 54",
+                Telefonnr: "23985713",
+                Personnr: "14049784187"
+            }
+            let person2 = {
+                Navn: "Gaute Kjellsås",
+                Adresse: "Chinaveien 3",
+                Telefonnr: "15618561",
+                Personnr: "14120248135"
+            }
+            let person3 = {
+                Navn: "Eymiley Fjord",
+                Adresse: "Broveien 2",
+                Telefonnr: "42142633",
+                Personnr: "12040287848"
+            }
+            let person4 = {
+                Navn: "Ceiroliny Elm",
+                Adresse: "Trelastveien 53",
+                Telefonnr: "33131616",
+                Personnr: "13080215611"
+            }
+
+            const register = [];
+            register.push(person1, person2, person3, person4)
+            let teller = 0
+            for (let person of register) {
+
+                let strong = false
+                if(teller % 2 === 0){
+                    strong = true;
+                }
+                if(strong){
+                    ut += "<tr>"
+                    ut += "<td>" + "<strong>" + person.Navn + "</strong>" + "</td><td>" + "<strong>" + person.Adresse + "</strong>" +
+                        "</td><td>" + "<strong>" + person.Telefonnr + "</strong>" + "</td><td>" + "<strong>" + person.Personnr + "</strong>" + "</td>"
+                    ut += "</tr>"
+                }else{
+                    ut += "<tr>"
+                    ut += "<td>" + person.Navn + "</td><td>" + person.Adresse +
+                        "</td><td>" + person.Telefonnr + "</td><td>" + person.Personnr + "</td>"
+                    ut += "</tr>"
+                }
+                teller++
+            }
+
+
+            register.sort(compare);
+            function compare(a, b){
+                    if(a.Navn < b.Navn){
+                        return -1;
+                    }
+                    else if(a.Navn > b.Navn){
+                        return 1;
+                    }else{
+                        return 0;
+                    }
+            }
+
+            ut += "<table><tr>" +
+                "<th>Navn</th><th>Adresse</th><th>Telefonnr</th><th>Personnummer</th>" +
+                "</tr>";
+                teller = 0
+            for (let person of register) {
+                let strong = false
+                if(teller % 2 === 0){
+                    strong = true;
+                }
+                    if(strong){
+                        ut += "<tr>"
+                        ut += "<td>" + "<strong>" + person.Navn + "</strong>" + "</td><td>" + "<strong>" + person.Adresse + "</strong>" +
+                            "</td><td>" + "<strong>" + person.Telefonnr + "</strong>" + "</td><td>" + "<strong>" + person.Personnr + "</strong>" + "</td>"
+                        ut += "</tr>"
+                    }else{
+                        ut += "<tr>"
+                        ut += "<td>" + person.Navn + "</td><td>" + person.Adresse +
+                            "</td><td>" + person.Telefonnr + "</td><td>" + person.Personnr + "</td>"
+                        ut += "</tr>"
+                    }
+                    teller++
+            }
+            document.write(ut);
+        }
+    </script>
+
+</head>
+<body>
+<button onclick="visPersonRegister()">Vis personregister</button>
+<div id="personRegister"></div>
+
+</body>
+</html>
